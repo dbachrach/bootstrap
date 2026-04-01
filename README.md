@@ -27,7 +27,7 @@ cd ~/code/bootstrap
 bootstrap/
 ├── Brewfile          # Homebrew packages and casks
 ├── bootstrap.sh      # Main entry point
-├── dotfiles/         # Symlinked to $HOME
+├── dotfiles/         # Mirrors $HOME — symlinked recursively (e.g. dotfiles/.config/starship.toml → ~/.config/starship.toml)
 ├── macos/            # macOS system defaults
 └── scripts/          # Individual setup scripts
 ```

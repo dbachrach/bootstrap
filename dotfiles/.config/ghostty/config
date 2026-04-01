@@ -1,0 +1,15 @@
+theme = Catppuccin Mocha
+background-opacity = 0.85
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+# Window
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+
+# Behavior
+mouse-hide-while-typing = true
+window-save-state = always
+window-inherit-working-directory
+copy-on-select = false
