@@ -13,3 +13,5 @@ mouse-hide-while-typing = true
 window-save-state = always
 window-inherit-working-directory
 copy-on-select = false
+notify-on-command-finish = never
+

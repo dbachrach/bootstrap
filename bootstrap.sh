@@ -63,31 +63,14 @@ install_brewfile() {
 
 # ── Dotfiles ──────────────────────────────────────────────────────────────────
 install_dotfiles() {
-  local dotfiles_dir="$BOOTSTRAP_DIR/dotfiles"
-  if [[ ! -d "$dotfiles_dir" ]]; then
+  if [[ ! -d "$BOOTSTRAP_DIR/dotfiles" ]]; then
     warn "No dotfiles/ directory found, skipping"
     return
   fi
 
-  info "Symlinking dotfiles..."
-  # Walk all files recursively; create dirs, symlink files
-  find "$dotfiles_dir" -mindepth 1 | while read -r file; do
-    local rel="${file#$dotfiles_dir/}"
-    local target="$HOME/$rel"
-
-    if [[ -d "$file" ]]; then
-      mkdir -p "$target"
-      continue
-    fi
-
-    if [[ -e "$target" && ! -L "$target" ]]; then
-      warn "$rel already exists and is not a symlink — backing up to ${rel}.bak"
-      mv "$target" "${target}.bak"
-    fi
-
-    ln -sf "$file" "$target"
-    success "Linked ~/$rel"
-  done
+  info "Symlinking dotfiles with stow..."
+  stow --dir="$BOOTSTRAP_DIR" --target="$HOME" --restow dotfiles
+  success "Dotfiles linked"
 }
 
 # ── macOS Defaults ────────────────────────────────────────────────────────────

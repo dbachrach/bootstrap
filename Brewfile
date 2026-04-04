@@ -1,5 +1,6 @@
 tap "raine/workmux"
 brew "fzf"
+brew "stow"
 brew "gemini-cli"
 brew "gh"
 brew "git"

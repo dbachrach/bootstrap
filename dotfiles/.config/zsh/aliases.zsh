@@ -1,0 +1,9 @@
+alias ll="ls -alh"
+alias o="open ."
+alias g="git"
+alias gst="git status"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias wm='workmux'
