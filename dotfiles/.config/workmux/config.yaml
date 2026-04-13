@@ -1,0 +1,23 @@
+panes:
+  # Pane 1: AI agent
+  - command: <agent>
+    focus: true
+
+  # Pane 2: Install dependencies, then start dev server
+  - command: vp install && vp dev
+    split: horizontal
+    percentage: 25
+  - split: vertical
+    percentage: 50
+
+agent: "claude --dangerously-skip-permissions"
+
+files:
+  copy:
+    - .env
+  symlink:
+    - .claude/settings.local.json
+
+sandbox:
+  enabled: true
+  host_commands: ["npm", "npx", "vp", "vpr", "vpx"]
