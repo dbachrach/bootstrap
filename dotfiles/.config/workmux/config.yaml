@@ -20,4 +20,5 @@ files:
 
 sandbox:
   enabled: true
-  host_commands: ["npm", "npx", "vp", "vpr", "vpx"]
+  host_commands: ["npm", "npx", "vp", "vpr", "vpx", "node"]
+nerdfont: true
