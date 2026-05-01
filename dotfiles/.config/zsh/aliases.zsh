@@ -23,7 +23,7 @@ alias vpt="vp test"
 alias vpc="vp check"
 
 # claude
-alias cc="cluade"
+alias cc="claude"
 
 # zed
 alias zz="zed ."
