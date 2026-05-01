@@ -11,22 +11,27 @@ Scripts and configuration to set up a new Mac from scratch — Homebrew packages
 
 ## Usage
 
-```sh
-# Clone the repo
-mkdir -p ~/code
-git clone https://github.com/dbachrach/bootstrap.git ~/code/bootstrap
-cd ~/code/bootstrap
+On a fresh Mac, open Terminal and run:
 
-# Run the bootstrap script
-./bootstrap.sh
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dbachrach/bootstrap/main/init.sh)"
+```
+
+This installs Xcode CLT, clones the repo to `~/code/bootstrap`, and runs `bootstrap.sh` — no git or SSH key needed upfront.
+
+To re-run on an existing machine:
+
+```sh
+~/code/bootstrap/bootstrap.sh
 ```
 
 ## Structure
 
 ```
 bootstrap/
+├── init.sh           # Fresh-machine entry point (curl | bash this)
+├── bootstrap.sh      # Main orchestrator
 ├── Brewfile          # Homebrew packages and casks
-├── bootstrap.sh      # Main entry point
 ├── dotfiles/         # Mirrors $HOME — symlinked recursively (e.g. dotfiles/.config/starship.toml → ~/.config/starship.toml)
 ├── macos/            # macOS system defaults
 └── scripts/          # Individual setup scripts

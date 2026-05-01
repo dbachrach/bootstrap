@@ -20,13 +20,13 @@ This runs in order: Xcode CLT → Homebrew + Brewfile → dotfiles symlinking �
 
 **`dotfiles/`** — mirrors `$HOME`. Bootstrap uses `stow` to symlink this directory into `$HOME`. For example, `dotfiles/.config/ghostty/config` → `~/.config/ghostty/config`. Adding a new dotfile means dropping it in the matching path under `dotfiles/`.
 
-**`scripts/`** — numbered shell scripts (`01-nvm.sh`, `02-viteplus.sh`, `03-ssh.sh`) run in glob order. Each script is idempotent — it checks whether the tool is already installed and exits early if so. New setup steps go here as a new numbered script.
+**`scripts/`** — numbered shell scripts (`01-nvm.sh`, `02-viteplus.sh`, `03-gh-auth.sh`) run in glob order. Each script is idempotent — it checks whether the tool is already installed and exits early if so. New setup steps go here as a new numbered script.
 
 **`macos/defaults.sh`** — `defaults write` commands for system preferences. Ends with `killall Finder && killall Dock` to apply changes.
 
 **`Brewfile`** — Homebrew formulae and casks. Add new packages here; `brew bundle` installs them.
 
-**`MANUAL.md`** — steps that can't be automated (1Password sign-in, adding SSH key to GitHub).
+**`MANUAL.md`** — steps that can't be automated (1Password sign-in).
 
 ## When to Re-run Bootstrap
 
@@ -40,5 +40,5 @@ This runs in order: Xcode CLT → Homebrew + Brewfile → dotfiles symlinking �
 ## Conventions
 
 - Scripts use `set -euo pipefail` and the color helpers (`info`, `success`, `warn`, `error`) defined in `bootstrap.sh`.
-- `scripts/03-ssh.sh` is interactive — it prompts for an email address. All other scripts are non-interactive.
+- `scripts/03-gh-auth.sh` is interactive — it prompts for github sign in. All other scripts are non-interactive.
 - The `scripts/` naming convention uses zero-padded two-digit prefixes to control execution order.
