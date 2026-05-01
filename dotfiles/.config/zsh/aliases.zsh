@@ -6,7 +6,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-
 # git
 alias g="git"
 alias gst="git status"
@@ -18,7 +17,13 @@ alias gpush="git push"
 # workmux
 alias wm='workmux'
 
-## viteplus
+# viteplus
 alias vpd="vp dev"
 alias vpt="vp test"
 alias vpc="vp check"
+
+# claude
+alias cc="cluade"
+
+# zed
+alias zz="zed ."

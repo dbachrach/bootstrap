@@ -4,7 +4,7 @@ panes:
     focus: true
 
   # Pane 2: Install dependencies, then start dev server
-  - command: vp install && vp dev
+  - command: vp install && vpr workmux:bootstrap
     split: horizontal
     percentage: 25
   - split: vertical
