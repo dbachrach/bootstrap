@@ -13,6 +13,9 @@ alias gcm="git commit -m"
 alias gcma="git commit -am"
 alias gaa="git add --all"
 alias gpush="git push"
+alias gpull="git pull"
+alias gsw="git switch"
+alias gswc="git switch -c"
 
 # workmux
 alias wm='workmux'
@@ -27,3 +30,6 @@ alias cc="claude"
 
 # zed
 alias zz="zed ."
+
+# pnpm
+alias p="pnpm"
