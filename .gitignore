@@ -24,3 +24,5 @@ secrets/
 # Temporary files
 *.tmp
 *.bak
+
+*.mdb
