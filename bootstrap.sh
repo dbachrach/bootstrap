@@ -102,6 +102,25 @@ run_scripts() {
   done
 }
 
+# ── Switch remote to SSH ──────────────────────────────────────────────────────
+switch_remote_to_ssh() {
+  local current
+  current=$(git -C "$BOOTSTRAP_DIR" remote get-url origin 2>/dev/null || true)
+
+  if [[ "$current" == git@* ]]; then
+    success "Remote already using SSH"
+    return
+  fi
+
+  # Convert https://github.com/user/repo.git → git@github.com:user/repo.git
+  local ssh_url
+  ssh_url=$(echo "$current" | sed 's|https://github.com/|git@github.com:|')
+
+  info "Switching remote origin to SSH..."
+  git -C "$BOOTSTRAP_DIR" remote set-url origin "$ssh_url"
+  success "Remote switched to $ssh_url"
+}
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 main() {
   echo ""
@@ -115,6 +134,7 @@ main() {
   install_dotfiles
   apply_macos_defaults
   run_scripts
+  switch_remote_to_ssh
 
   echo ""
   success "Bootstrap complete!"
