@@ -17,6 +17,8 @@ These steps can't be automated. Complete them after running `bootstrap.sh`.
 - Remove widgets from desktop
 - Sound: Play feedback on volume change
 - Set wallpaper image
+- Click wallpaper to show desktop: off
+- hot screen corner: disable all
 
 ## 2. Sign into 1Password
 
@@ -43,3 +45,5 @@ Install extension
 ## Configure rectangle
 
 - Spectacle keys, remove top-half, set maximze to cmd-opt-up
+
+## Login to claude and codex

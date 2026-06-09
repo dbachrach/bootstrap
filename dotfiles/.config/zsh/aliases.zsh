@@ -28,8 +28,13 @@ alias vpc="vp check"
 # claude
 alias cc="claude"
 
+# codex
+alias cx="codex"
+
 # zed
 alias zz="zed ."
 
 # pnpm
 alias p="pnpm"
+alias pd="pnpm dev"
+alias pt="pnpm test"
