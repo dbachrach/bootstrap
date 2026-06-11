@@ -12,7 +12,7 @@ A Mac bootstrap repo — scripts and dotfiles to provision a fresh macOS machine
 ./bootstrap.sh
 ```
 
-This runs in order: Xcode CLT → Homebrew + Brewfile → dotfiles symlinking → macOS defaults → `scripts/*.sh` (numerically ordered).
+This runs in order: Xcode CLT → git submodules → Homebrew + Brewfile → dotfiles symlinking → macOS defaults → `scripts/*.sh` (numerically ordered).
 
 ## Architecture
 
@@ -39,6 +39,6 @@ This runs in order: Xcode CLT → Homebrew + Brewfile → dotfiles symlinking �
 
 ## Conventions
 
-- Scripts use `set -euo pipefail` and the color helpers (`info`, `success`, `warn`, `error`) defined in `bootstrap.sh`.
+- Scripts use `set -euo pipefail` and source the color helpers (`info`, `success`, `warn`, `error`) from `lib/helpers.sh`.
 - `scripts/03-gh-auth.sh` is interactive — it prompts for github sign in. All other scripts are non-interactive.
 - The `scripts/` naming convention uses zero-padded two-digit prefixes to control execution order.

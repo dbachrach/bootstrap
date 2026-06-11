@@ -6,44 +6,30 @@ These steps can't be automated. Complete them after running `bootstrap.sh`.
 
 ## 1. Mac Settings
 
-- Connect Airpods and Keyboard/Mouse
-- Give Logioptions permissions
-- Menubar: add bluetooth and show battery percentage
-- Set up Touch ID.
-- Tracking Speed: 1 click off fast. Click Firm. Disable force clicck and lookup and data detectors
-- Wallpaper
-- dark mode
-- Keyboard | Globe key: do nothing
-- Remove widgets from desktop
-- Sound: Play feedback on volume change
-- Set wallpaper image
-- Click wallpaper to show desktop: off
-- hot screen corner: disable all
+- Connect AirPods and Keyboard/Mouse
+- Give Logi Options permissions
+- Set up Touch ID
 
 ## 2. Sign into 1Password
 
 Open 1Password and sign into your account. Enable Touch ID.
-Settings: disable keep 1 pass in menu bar, security|concealed field| hold option to reveal
-Install extension
+Settings: disable keep 1Password in menu bar, security | concealed field | hold option to reveal.
+Install browser extension.
 
-## Sign into Todoist
+## 3. Sign into Todoist
 
-- Hide menubar item
-
-## Sign into chrome
+## 4. Sign into Chrome
 
 - Turn on sync
 
-## Sign into Apple Music
+## 5. Sign into Apple Music
 
-- Playback: Disable transitions
- 
-## Other settings
+## 6. Other settings
 
-- Disable centerstage in zoom
+- Disable Center Stage in Zoom
 
-## Configure rectangle
+## 7. Rectangle
 
-- Spectacle keys, remove top-half, set maximze to cmd-opt-up
+Launch Rectangle and grant Accessibility permission.
 
-## Login to claude and codex
+## 8. Login to claude and codex

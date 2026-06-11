@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # Install Vite+
+set -euo pipefail
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/helpers.sh"
 
 if [[ -d "$HOME/.vite-plus" ]]; then
-  echo "Vite+ already installed, skipping"
+  success "Vite+ already installed, skipping"
   exit 0
 fi
 
-echo "Installing Vite+..."
+info "Installing Vite+..."
 curl -fsSL https://vite.plus | bash
-echo "Vite+ installed"
+success "Vite+ installed"

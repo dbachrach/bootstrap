@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # Install Claude Code CLI
+set -euo pipefail
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/helpers.sh"
 
 if command -v claude &>/dev/null; then
-  echo "Claude Code already installed, skipping"
+  success "Claude Code already installed, skipping"
   exit 0
 fi
 
-echo "Installing Claude Code..."
+info "Installing Claude Code..."
 curl -fsSL https://claude.ai/install.sh | bash
-echo "Claude Code installed"
+success "Claude Code installed"

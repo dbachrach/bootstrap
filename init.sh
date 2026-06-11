@@ -30,7 +30,7 @@ if [[ -d "$DEST" ]]; then
 else
   info "Cloning bootstrap repo..."
   mkdir -p "$HOME/code"
-  git clone "$REPO_URL" "$DEST"
+  git clone --recurse-submodules "$REPO_URL" "$DEST"
 fi
 success "Repo ready at $DEST"
 

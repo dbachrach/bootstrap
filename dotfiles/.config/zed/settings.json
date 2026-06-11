@@ -69,5 +69,6 @@
     "catppuccin-icons": true,
     "graphql": true,
     "terraform": true,
+    "toml": true,
   },
 }

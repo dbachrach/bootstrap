@@ -4,16 +4,7 @@ set -euo pipefail
 BOOTSTRAP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # ── Colors ────────────────────────────────────────────────────────────────────
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-
-info()    { echo -e "${BLUE}==>${NC} $*"; }
-success() { echo -e "${GREEN}  ✓${NC} $*"; }
-warn()    { echo -e "${YELLOW}  !${NC} $*"; }
-error()   { echo -e "${RED}  ✗${NC} $*" >&2; }
+source "$BOOTSTRAP_DIR/lib/helpers.sh"
 
 # ── Xcode Command Line Tools ──────────────────────────────────────────────────
 install_xcode_tools() {
@@ -27,6 +18,13 @@ install_xcode_tools() {
   # Wait for installation to complete
   until xcode-select -p &>/dev/null; do sleep 5; done
   success "Xcode CLT installed"
+}
+
+# ── Git Submodules ────────────────────────────────────────────────────────────
+init_submodules() {
+  info "Checking git submodules..."
+  git -C "$BOOTSTRAP_DIR" submodule update --init --recursive
+  success "Submodules ready"
 }
 
 # ── Homebrew ──────────────────────────────────────────────────────────────────
@@ -69,7 +67,10 @@ install_dotfiles() {
   fi
 
   info "Symlinking dotfiles with stow..."
-  stow --dir="$BOOTSTRAP_DIR" --target="$HOME" --restow dotfiles
+  # --no-folding: symlink individual files, not whole directories. A folded
+  # directory (e.g. ~/.config → repo) makes apps write live state — including
+  # credentials — into the repo working tree.
+  stow --no-folding --dir="$BOOTSTRAP_DIR" --target="$HOME" --restow dotfiles
   success "Dotfiles linked"
 }
 
@@ -129,6 +130,7 @@ main() {
   echo ""
 
   install_xcode_tools
+  init_submodules
   install_homebrew
   install_brewfile
   install_dotfiles
