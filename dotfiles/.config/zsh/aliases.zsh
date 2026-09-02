@@ -16,6 +16,7 @@ alias gpush="git push"
 alias gpull="git pull"
 alias gsw="git switch"
 alias gswc="git switch -c"
+alias glog="git log"
 
 # workmux
 alias wm='workmux'
