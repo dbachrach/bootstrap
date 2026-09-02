@@ -33,3 +33,8 @@ Install browser extension.
 Launch Rectangle and grant Accessibility permission.
 
 ## 8. Login to claude and codex
+
+## 9. Local shell secrets
+
+Create `~/.zshrc.local` (mode 600) for machine-specific secrets that must not
+be committed, e.g. `export NODE_AUTH_TOKEN=...`. `.zshrc` sources it if present.
