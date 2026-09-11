@@ -54,6 +54,12 @@ install_brewfile() {
     warn "No Brewfile found, skipping"
     return
   fi
+  # Homebrew refuses to load formulae from non-official taps until trusted
+  local tap
+  while read -r tap; do
+    brew trust --tap --quiet "$tap"
+  done < <(sed -nE 's/^tap "([^"]+)".*/\1/p' "$brewfile")
+
   info "Installing packages from Brewfile..."
   brew bundle --file="$brewfile"
   success "Brewfile packages installed"
