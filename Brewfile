@@ -1,5 +1,7 @@
+tap "anomalyco/tap"
 tap "raine/workmux"
 tap "schpet/tap"
+brew "anomalyco/tap/opencode"
 brew "awscli"
 brew "fzf"
 brew "stow"
