@@ -3,3 +3,11 @@
 	email = ahdustin@gmail.com
 [init]
 	defaultBranch = main
+
+# Use work identity for any repo with a remote in the loancrate GitHub org
+[includeIf "hasconfig:remote.*.url:git@github.com:loancrate/**"]
+	path = ~/.gitconfig-loancrate
+[includeIf "hasconfig:remote.*.url:https://github.com/loancrate/**"]
+	path = ~/.gitconfig-loancrate
+[includeIf "hasconfig:remote.*.url:ssh://git@github.com/loancrate/**"]
+	path = ~/.gitconfig-loancrate
