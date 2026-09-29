@@ -25,9 +25,8 @@ autoload -Uz compinit
   fi
 }
 
-(( $+commands[workmux] )) && eval "$(workmux completions zsh)"
+_cached_eval workmux workmux completions zsh
+# ~/.vite-plus/env (sourced from .zshenv) only registers completions when
+# compdef exists, which it never does that early — so load them here.
+_cached_eval vp env VP_COMPLETE=zsh vp
 
-# nvm's completion script runs its own full compinit (writing ~/.zcompdump)
-# unless compinit is already defined, so it must load after compinit above,
-# not from .zprofile.
-[[ -s ${NVM_DIR:-$HOME/.nvm}/bash_completion ]] && source ${NVM_DIR:-$HOME/.nvm}/bash_completion
