@@ -18,9 +18,6 @@ alias gsw="git switch"
 alias gswc="git switch -c"
 alias glog="git log"
 
-# workmux
-alias wm='workmux'
-
 # viteplus
 alias vpd="vp dev"
 alias vpt="vp test"

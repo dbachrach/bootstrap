@@ -25,7 +25,6 @@ autoload -Uz compinit
   fi
 }
 
-_cached_eval workmux workmux completions zsh
 # ~/.vite-plus/env (sourced from .zshenv) only registers completions when
 # compdef exists, which it never does that early — so load them here.
 _cached_eval vp env VP_COMPLETE=zsh vp
