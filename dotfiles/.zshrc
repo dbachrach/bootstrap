@@ -30,6 +30,3 @@ export PATH="$PATH:/Users/dustin/.lmstudio/bin"
 
 # Machine-local secrets/overrides (not tracked). See MANUAL.md.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-# ~/.local/bin (cua-driver, claude, ...) is appended in .zprofile. Don't let
-# installers prepend it: it holds Hermes's node/npm/npx, which shadow nvm's.
