@@ -113,7 +113,9 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-# Globe/Fn key does nothing
+# Globe/Fn key does nothing (macOS default opens the emoji picker).
+# 0 = do nothing, 1 = change input source, 2 = emoji & symbols, 3 = dictation.
+# Applied without logout by the activateSettings/TextInputSwitcher reload at the end.
 defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 
 # ── Trackpad ──────────────────────────────────────────────────────────────────
@@ -210,3 +212,8 @@ killall Finder 2>/dev/null || true
 killall Dock 2>/dev/null || true
 killall ControlCenter 2>/dev/null || true
 killall SystemUIServer 2>/dev/null || true
+
+# Reload preferences and restart the Globe-key handler so AppleFnUsageType
+# applies without a logout. TextInputSwitcher ignores SIGTERM; launchd relaunches it.
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u 2>/dev/null || true
+killall -9 TextInputSwitcher 2>/dev/null || true
